@@ -15,13 +15,16 @@ const winPatters= [
     [3,4,5],
     [6,7,8],
 ];
+let count=0;
 
 const resetGame=()=>{
     turnO=true;
     enableBoxes();
     msgContainer.classList.add("hide");
+    winnerFound=false;
+    count=0;
 }
-let count=0;
+
 
 boxes.forEach((box)=>{
     box.addEventListener("click",()=>{
@@ -36,7 +39,7 @@ boxes.forEach((box)=>{
         box.disabled=true;
         checkWinner();
         count++;
-        if(count===9&&winnerFound===false)
+        if(count===9 && winnerFound===false)
         {
             draw();
         }
